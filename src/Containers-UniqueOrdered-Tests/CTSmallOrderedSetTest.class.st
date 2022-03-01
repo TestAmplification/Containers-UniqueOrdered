@@ -32,6 +32,24 @@ CTSmallOrderedSetTest >> testAddAll [
 	self assert: (collection includes: 2)
 ]
 
+{ #category : #'as yet unclassified' }
+CTSmallOrderedSetTest >> testAdd_amp_A11 [
+
+	"SmallAmp has derived this test from `CTSmallOrderedSetTest>>#testAdd` by applying some transformations and regenerating its assertions.
+	This test can cover this part:
+	*	In `CTSmallOrderedSet>> #remove:ifAbsent:` from 115 to 135:
+		Operation: RemoveCaretOperator
+		Code snippet: `^ aNiladicBlock value`
+		Dynamic state: nil
+		Mutant id: RemoveCaretOperator#CTSmallOrderedSet#remove:ifAbsent:#115#135
+"
+
+	<madeBySmallAmp>
+	| object anUndefinedObject |
+	anUndefinedObject := collection remove: 1 ifAbsent: [  ].
+	self assert: anUndefinedObject isNil
+]
+
 { #category : #testing }
 CTSmallOrderedSetTest >> testAddingTwiceTheSameOnlyAddOne [
 	| object |
@@ -79,6 +97,26 @@ CTSmallOrderedSetTest >> testDoShouldIterateInOrder [
 	self assert: seen size equals: 2.
 	self assert: (seen at: 1) equals: 1.
 	self assert: (seen at: 2) equals: 2
+]
+
+{ #category : #'as yet unclassified' }
+CTSmallOrderedSetTest >> testDo_amp [
+
+	"SmallAmp has derived this test from `CTSmallOrderedSetTest>>#testDo` by regenerating its assertions.
+	This test can cover this part:
+	*	In `CTSmallOrderedSet>> #addAll:` from 69 to 81:
+		Operation: RemoveCaretOperator
+		Code snippet: `^ aCollection`
+		Dynamic state: {#aCollection->#(2 1 1)}
+		Mutant id: RemoveCaretOperator#CTSmallOrderedSet#addAll:#69#81
+"
+
+	<madeBySmallAmp>
+	| seen aCollection |
+	aCollection := collection addAll: #( 2 1 1 ).
+	self
+		assert: collection isCollection;
+		assert: aCollection class equals: Array
 ]
 
 { #category : #testing }
