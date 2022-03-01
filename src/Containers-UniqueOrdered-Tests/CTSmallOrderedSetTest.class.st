@@ -99,6 +99,26 @@ CTSmallOrderedSetTest >> testDoShouldIterateInOrder [
 	self assert: (seen at: 2) equals: 2
 ]
 
+{ #category : #'as yet unclassified' }
+CTSmallOrderedSetTest >> testDo_amp [
+
+	"SmallAmp has derived this test from `CTSmallOrderedSetTest>>#testDo` by regenerating its assertions.
+	This test can cover this part:
+	*	In `CTSmallOrderedSet>> #addAll:` from 69 to 81:
+		Operation: RemoveCaretOperator
+		Code snippet: `^ aCollection`
+		Dynamic state: {#aCollection->#(2 1 1)}
+		Mutant id: RemoveCaretOperator#CTSmallOrderedSet#addAll:#69#81
+"
+
+	<madeBySmallAmp>
+	| seen aCollection |
+	aCollection := collection addAll: #( 2 1 1 ).
+	self
+		assert: collection isCollection;
+		assert: aCollection class equals: Array
+]
+
 { #category : #testing }
 CTSmallOrderedSetTest >> testIncludes [
 	self deny: (collection includes: 0).
